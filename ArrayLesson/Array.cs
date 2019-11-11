@@ -103,5 +103,9 @@
                 Value = arr;
                 return (true);
             }
+            public void Change(int index, int val)
+            {
+                Value[index] = val;
+            }
         }
     }

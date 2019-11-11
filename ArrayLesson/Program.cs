@@ -39,6 +39,11 @@ namespace ArrayLesson
             int index0 = int.Parse(Console.ReadLine());
             Array1.RemoveByIndex(index0);
             Array1.Print();
+            Console.WriteLine("Задайте индекс и значение для его замены");
+            int indexch = int.Parse(Console.ReadLine());
+            int valch = int.Parse(Console.ReadLine());
+            Array1.Change(indexch, valch);
+            Array1.Print();
             Console.ReadKey();
         }
     }
