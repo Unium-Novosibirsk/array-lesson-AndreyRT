@@ -39,12 +39,12 @@ namespace ArrayLesson
             int index0 = int.Parse(Console.ReadLine());
             Array1.RemoveByIndex(index0);
             Array1.Print();
+            Console.WriteLine();
             Console.WriteLine("Задайте индекс для определения наличия");
             int indexi = int.Parse(Console.ReadLine());
             Array1.Have(indexi);
             bool ToF = Array1.Have(indexi);
-            Console.WriteLine(ToF);
-            Array1.Print();
+            Console.WriteLine(ToF);;
             Console.ReadKey();
         }
     }

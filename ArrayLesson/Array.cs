@@ -8,7 +8,7 @@ namespace ArrayLesson
 {
     public class Array
     {
-        public int Size { get; set; }
+        private int Size { get; set; }
         private int[] Value;
         public Array(int[] _Value)
         {
@@ -105,22 +105,14 @@ namespace ArrayLesson
         }
         public bool Have(int index)
         {
-            int k = 0;
             for (int i = 0; i < Value.Length; i++)
             {
-                if(Value[i] == index)
+                if (Value[i] == index)
                 {
-                    k += 1;
+                    return true;
                 }
             }
-            if (k>0)
-            {
-                return (true);
-            }
-            else
-            {
-                return (false);
-            }
+            return false;
         }
     }
 }
