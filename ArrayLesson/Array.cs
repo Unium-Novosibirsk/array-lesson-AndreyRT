@@ -8,16 +8,14 @@ namespace ArrayLesson
 {
     public class Array
     {
-        private int Size { get; set; }
+        public int Size { get; private set; }
         private int[] Value;
         public Array(int[] _Value)
         {
             Size = _Value.Length;
             Value = new int[_Value.Length];
             for (int j = 0; j < _Value.Length; j++)
-            {
                 Value[j] = _Value[j];
-            }
         }
         public Array()
         {
@@ -27,91 +25,63 @@ namespace ArrayLesson
         public int Summ()
         {
             int summ = 0;
-            for (int i = 0; i < Value.Length; i++)
-            {
+            foreach (int i in Value)
                 summ += Value[i];
-            }
             return (summ);
         }
         public int Min()
         {
             int min = Value[0];
-            for (int i = 0; i < Value.Length; i++)
-            {
+            foreach (int i in Value)
                 if (min > Value[i])
-                {
                     min = Value[i];
-                }
-            }
             return (min);
         }
         public long Multiplication()
         {
             long multiplication = 1;
-            for (int i = 0; i < Value.Length; i++)
-            {
+            foreach (int i in Value)
                 multiplication *= Value[i];
-            }
             return (multiplication);
         }
         public int Max()
         {
             int max = 0;
-            for (int i = 0; i < Value.Length; i++)
-            {
+            foreach (int i in Value)
                 if (max < Value[i])
-                {
                     max = Value[i];
-                }
-            }
             return (max);
         }
         public void Print()
         {
             Console.Write("Array = ");
-            for (int i = 0; i < Value.Length; i++)
-            {
+            foreach (int i in Value)
                 Console.Write(Value[i] + " ");
-            }
         }
         public int Find(int val)
         {
-            for (int i = 0; i < Value.Length; i++)
-            {
+            foreach (int i in Value)
                 if (Value[i] == val)
-                {
                     return (i);
-                }
-            }
             return (-1);
         }
         public bool RemoveByIndex(int index1)
         {
             if ((index1 < 0) || (index1 >= Value.Length))
-            {
                 return (false);
-            }
             int[] arr = new int[Value.Length - 1];
             for (int i = 0; i < index1; i++)
-            {
                 arr[i] = Value[i];
-            }
             for (int i = index1; i < Value.Length - 1; i++)
-            {
                 arr[i] = Value[i + 1];
-            }
             Value = arr;
             return (true);
         }
         public bool Have(int index)
         {
-            for (int i = 0; i < Value.Length; i++)
-            {
+            foreach (int i in Value)
                 if (Value[i] == index)
-                {
                     return true;
-                }
-            }
             return false;
         }
     }
