@@ -25,18 +25,34 @@ namespace ArrayLesson
         public void RemoveByIndex(int index1)
         {
             if (index1 < 0 || index1 > Value.Length)
-            {
                 throw new IndexOutOfRangeException();
+            int[] arr = new int[Value.Length - 1];
+            for (int i = 0; i < index1; i++)
+                arr[i] = Value[i];
+            for (int i = index1; i < Value.Length - 1; i++)
+                arr[i] = Value[i + 1];
+            Value = arr;
             }
+        }
+        public Array()
+        {
+            Value = new int[0];
+            Size = 0;
+        }
+        public int GetByIndex(int index)
+        {
+            if (index > 0 && index <= Value.Length)
+                return Value[index];
             else
-            {
-                int[] arr = new int[Value.Length - 1];
-                for (int i = 0; i < index1; i++)
-                    arr[i] = Value[i];
-                for (int i = index1; i < Value.Length - 1; i++)
-                    arr[i] = Value[i + 1];
-                Value = arr;
-            }
+                throw new IndexOutOfRangeException();
+        }
+
+        public void SetByIndex(int index, int val)
+        {
+            if (index > 0 && index <= Value.Length)
+                Value[index] = val;
+            else
+                throw new IndexOutOfRangeException();
         }
     }
 }
