@@ -31,6 +31,7 @@ namespace ArrayLesson
             else
                 throw new IndexOutOfRangeException();
         }
+
         public void SetByIndex(int index, int val)
         {
             if (index > 0 && index <= Value.Length)
