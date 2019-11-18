@@ -8,19 +8,37 @@ namespace ArrayLesson
 {
     public class Array
     {
-        private int[] _array;
-        public int Length { get; private set; }
+        public int Size { get; set; }
+        private int[] Value;
+        public Array(int[] _Value)
+        {
+            Size = _Value.Length;
+            Value = new int[_Value.Length];
+            for (int j = 0; j < _Value.Length; j++)
+            {
+                Value[j] = _Value[j];
+            }
+        }
         public Array()
         {
-            Length = 0;
-            _array = new int[0];
+            Value = new int[0];
+            Size = 0;
         }
-        public Array(int [] array)
+        public int GetByIndex(int index)
         {
-            Length = array.Length;
-            _array = new int[array.Length];
-            for (int i = 0; i < array.Length; i++)
-                _array[i] = array[i];
+            if (index > 0 && index <= Value.Length)
+                return Value[index];
+            else
+                throw new IndexOutOfRangeException();
+        }
+
+        public void SetByIndex(int index, int val)
+        {
+            if (index > 0 && index <= Value.Length)
+                Value[index] = val;
+            else
+                throw new IndexOutOfRangeException();
         }
     }
 }
+
