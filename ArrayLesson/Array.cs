@@ -22,67 +22,21 @@ namespace ArrayLesson
             Value = new int[0];
             Size = 0;
         }
-        public int Summ()
+        public void RemoveByIndex(int index1)
         {
-            int summ = 0;
-            foreach (int i in Value)
-                summ += Value[i];
-            return (summ);
-        }
-        public int Min()
-        {
-            int min = Value[0];
-            foreach (int i in Value)
-                if (min > Value[i])
-                    min = Value[i];
-            return (min);
-        }
-        public long Multiplication()
-        {
-            long multiplication = 1;
-            foreach (int i in Value)
-                multiplication *= Value[i];
-            return (multiplication);
-        }
-        public int Max()
-        {
-            int max = 0;
-            foreach (int i in Value)
-                if (max < Value[i])
-                    max = Value[i];
-            return (max);
-        }
-        public void Print()
-        {
-            Console.Write("Array = ");
-            foreach (int i in Value)
-                Console.Write(Value[i] + " ");
-        }
-        public int Find(int val)
-        {
-            foreach (int i in Value)
-                if (Value[i] == val)
-                    return (i);
-            return (-1);
-        }
-        public bool RemoveByIndex(int index1)
-        {
-            if ((index1 < 0) || (index1 >= Value.Length))
-                return (false);
-            int[] arr = new int[Value.Length - 1];
-            for (int i = 0; i < index1; i++)
-                arr[i] = Value[i];
-            for (int i = index1; i < Value.Length - 1; i++)
-                arr[i] = Value[i + 1];
-            Value = arr;
-            return (true);
-        }
-        public bool Have(int index)
-        {
-            foreach (int i in Value)
-                if (Value[i] == index)
-                    return true;
-            return false;
+            if (index1 < 0 || index1 > Value.Length)
+            {
+                throw new IndexOutOfRangeException();
+            }
+            else
+            {
+                int[] arr = new int[Value.Length - 1];
+                for (int i = 0; i < index1; i++)
+                    arr[i] = Value[i];
+                for (int i = index1; i < Value.Length - 1; i++)
+                    arr[i] = Value[i + 1];
+                Value = arr;
+            }
         }
     }
 }
