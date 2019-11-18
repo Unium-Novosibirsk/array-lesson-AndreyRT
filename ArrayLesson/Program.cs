@@ -14,6 +14,19 @@ namespace ArrayLesson
             var str = Console.ReadLine();
             int[] Array0 = str.Split(' ').Select(int.Parse).ToArray();
             Array Array1 = new Array(Array0);
+            try
+            {
+                Console.WriteLine("Задайте индекс для удаления значения");
+                int index0 = int.Parse(Console.ReadLine());
+                Array1.RemoveByIndex(index0);
+                Console.WriteLine();
+                Console.ReadKey();
+            }
+            catch
+            {
+                Console.WriteLine("input is incorrect");
+            }
+            Console.ReadLine();
             Console.WriteLine("задайте индекс получения");
             int v1=0;
             int value0 = int.Parse(Console.ReadLine());
