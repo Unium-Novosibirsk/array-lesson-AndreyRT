@@ -35,6 +35,15 @@ namespace ArrayLesson
             Console.WriteLine("индекс = " + Ind);
             Array1.Print();
             Console.WriteLine();
+            Console.WriteLine("Задайте значение индекса искомой переменной");
+            int indexfind = int.Parse(Console.ReadLine());
+            Array1.Get(indexfind);
+            Console.WriteLine();
+            Console.WriteLine("Задайте значение индекса для изменения значения и его новое значение");
+            int indexchange = int.Parse(Console.ReadLine());
+            int valchange = int.Parse(Console.ReadLine());
+            Array1.Set(indexchange, valchange);
+            Array1.Print();
             Console.WriteLine("Задайте индекс для удаления значения");
             int index0 = int.Parse(Console.ReadLine());
             Array1.RemoveByIndex(index0);
