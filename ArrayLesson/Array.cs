@@ -27,8 +27,8 @@ namespace ArrayLesson
         public void BubbleSort()
         {
             int another = 0; ;
-            foreach (int i in Value)
-                for (int j=i+1; j<Value.Length; j++)
+            for (int i = 0; i < Value.Length; i++)
+                for (int j = i + 1; j < Value.Length; j++)
                 {
                     if (Value[i] > Value[j])
                     {
@@ -37,6 +37,14 @@ namespace ArrayLesson
                         Value[j] = another;
                     }
                 }
+        }
+        public void Print()
+        {
+            Console.Write("Array = ");
+            for (int i = 0; i < Value.Length; i++)
+            {
+                Console.Write(Value[i] + " ");
+            }
         }
     }
 }
