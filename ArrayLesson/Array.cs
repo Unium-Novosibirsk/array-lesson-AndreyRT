@@ -8,7 +8,7 @@ namespace ArrayLesson
 {
     public class Array
     {
-        public int Size { get; set; }
+        public int Size { get; private set; }
         private int[] Value;
         public Array(int[] _Value)
         {
@@ -27,7 +27,7 @@ namespace ArrayLesson
             int summ = 0;
             for (int i = 0; i < Value.Length; i++)
                 summ += Value[i];
-            return (summ);
+            return summ;
         }
         public int Min()
         {
@@ -35,14 +35,14 @@ namespace ArrayLesson
             for (int i = 0; i < Value.Length; i++)
                 if (min > Value[i])
                     min = Value[i];
-            return (min);
+            return min;
         }
         public long Multiplication()
         {
             long multiplication = 1;
             for (int i = 0; i < Value.Length; i++)
                 multiplication *= Value[i];
-            return (multiplication);
+            return multiplication;
         }
         public int Max()
         {
@@ -50,7 +50,7 @@ namespace ArrayLesson
             for (int i = 0; i < Value.Length; i++)
                 if (max < Value[i])
                     max = Value[i];
-            return (max);
+            return max;
         }
         public void Print()
         {
@@ -62,20 +62,24 @@ namespace ArrayLesson
         {
             for (int i = 0; i < Value.Length; i++)
                 if (Value[i] == val)
-                    return (i);
-            return (-1);
+                    return i);
+            return -1;
         }
         public bool RemoveByIndex(int index1)
         {
             if ((index1 < 0) || (index1 >= Value.Length))
-                return (false);
+                return false;
+        public void RemoveByIndex(int index1)
+        {
+            if (index1 < 0 || index1 > Value.Length)
+                throw new IndexOutOfRangeException();
             int[] arr = new int[Value.Length - 1];
             for (int i = 0; i < index1; i++)
                 arr[i] = Value[i];
             for (int i = index1; i < Value.Length - 1; i++)
                 arr[i] = Value[i + 1];
             Value = arr;
-            return (true);
+            return true;
         }
         public int Get(int index)
         {
