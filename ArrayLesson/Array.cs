@@ -104,8 +104,6 @@ namespace ArrayLesson
                     if (Value[j] > Value[j+1])
                     {
                         Swap(ref Value[j],ref Value[j + 1]);
-                        Console.WriteLine(Value[j]);
-                        Console.WriteLine(Value[j+1]);
                     }
                 }
         }
