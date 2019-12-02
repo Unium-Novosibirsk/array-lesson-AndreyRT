@@ -62,13 +62,9 @@ namespace ArrayLesson
         {
             for (int i = 0; i < Value.Length; i++)
                 if (Value[i] == val)
-                    return i);
+                    return i;
             return -1;
         }
-        public bool RemoveByIndex(int index1)
-        {
-            if ((index1 < 0) || (index1 >= Value.Length))
-                return false;
         public void RemoveByIndex(int index1)
         {
             if (index1 < 0 || index1 > Value.Length)
@@ -79,7 +75,6 @@ namespace ArrayLesson
             for (int i = index1; i < Value.Length - 1; i++)
                 arr[i] = Value[i + 1];
             Value = arr;
-            return true;
         }
         public int Get(int index)
         {
