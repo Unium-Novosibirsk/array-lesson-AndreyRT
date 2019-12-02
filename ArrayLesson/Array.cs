@@ -99,7 +99,7 @@ namespace ArrayLesson
         public void BubbleSort()
         {
             for (int i = 0; i < Value.Length; i++)
-                for (int j = i + 1; j < Value.Length - 1 -i; j++)
+                for (int j = i + 1; j < Value.Length - 1; j++)
                 {
                     if (Value[j] > Value[j+1])
                     {
