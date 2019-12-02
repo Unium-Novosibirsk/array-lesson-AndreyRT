@@ -62,13 +62,9 @@ namespace ArrayLesson
         {
             for (int i = 0; i < Value.Length; i++)
                 if (Value[i] == val)
-                    return i);
+                    return i;
             return -1;
         }
-        public bool RemoveByIndex(int index1)
-        {
-            if ((index1 < 0) || (index1 >= Value.Length))
-                return false;
         public void RemoveByIndex(int index1)
         {
             if (index1 < 0 || index1 > Value.Length)
@@ -79,7 +75,6 @@ namespace ArrayLesson
             for (int i = index1; i < Value.Length - 1; i++)
                 arr[i] = Value[i + 1];
             Value = arr;
-            return true;
         }
         public int Get(int index)
         {
@@ -95,17 +90,18 @@ namespace ArrayLesson
             else
                 Value[index] = val;
         }
+        static void Swap(ref int firstarg, ref int secondarg)
+        {
+            int change = firstarg;
+            firstarg = secondarg;
+            secondarg = change;
+        }
         public void BubbleSort()
         {
-            int another = 0; ;
             for (int i = 0; i < Value.Length; i++)
-                for (int j = i + 1; j < Value.Length; j++)
-                    if (Value[i] > Value[j])
-                    {
-                        another = Value[i];
-                        Value[i] = Value[j];
-                        Value[j] = another;
-                    }
+                for (int j = i + 1; j < Value.Length - 1; j++)
+                    if (Value[j] > Value[j+1])
+                        Swap(ref Value[j],ref Value[j + 1]);
         }
     }
 }
