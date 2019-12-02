@@ -90,17 +90,24 @@ namespace ArrayLesson
             else
                 Value[index] = val;
         }
+        static void Swap(ref int firstarg, ref int secondarg)
+        {
+            int change = firstarg;
+            firstarg = secondarg;
+            secondarg = change;
+        }
         public void BubbleSort()
         {
-            int another = 0; ;
             for (int i = 0; i < Value.Length; i++)
-                for (int j = i + 1; j < Value.Length; j++)
-                    if (Value[i] > Value[j])
+                for (int j = i + 1; j < Value.Length - 1 -i; j++)
+                {
+                    if (Value[j] > Value[j+1])
                     {
-                        another = Value[i];
-                        Value[i] = Value[j];
-                        Value[j] = another;
+                        Swap(ref Value[j],ref Value[j + 1]);
+                        Console.WriteLine(Value[j]);
+                        Console.WriteLine(Value[j+1]);
                     }
+                }
         }
     }
 }
