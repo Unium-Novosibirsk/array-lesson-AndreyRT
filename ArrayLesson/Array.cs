@@ -22,6 +22,18 @@ namespace ArrayLesson
             Value = new int[0];
             Size = 0;
         }
+        public int this [int index]
+        {
+            get
+            {
+                return Get(index);
+            }
+            set
+            {
+                Set(index, value);
+            }
+
+        }
         public int Summ()
         {
             int summ = 0;
@@ -107,10 +119,8 @@ namespace ArrayLesson
         {
             for (int i = 1; i < Value.Length; i++)
                 for (int j = Value.Length - 1; j > 0; j--)
-                {
                     if (Value[j - 1] > Value[j])
                         Swap(ref Value[j - 1], ref Value[j]);
-                }
         }
     }
 }
