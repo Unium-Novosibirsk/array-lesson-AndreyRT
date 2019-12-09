@@ -49,8 +49,15 @@ namespace ArrayLesson
             Console.WriteLine("Задайте значение для проверки его наличия");
             Console.WriteLine(Array1.Chek(int.Parse(Console.ReadLine())));
             Console.WriteLine();
+            Console.WriteLine("Выберите тип сортировки");
+            Console.WriteLine("1 - BubbleSort");
+            Console.WriteLine("2 - SelectionSort");
+            short interfasevalue = short.Parse(Console.ReadLine());
             Console.Write("Сортировка - ");
-            Array1.BubbleSort();
+            if (interfasevalue == 1)
+                Array1.BubbleSort();
+            else if (interfasevalue == 1)
+                Array1.SelectionSort();
             Array1.Print();
             Console.ReadKey();
         }

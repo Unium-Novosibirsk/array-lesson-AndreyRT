@@ -122,5 +122,18 @@ namespace ArrayLesson
                     if (Value[j - 1] > Value[j])
                         Swap(ref Value[j - 1], ref Value[j]);
         }
+        public void SelectionSort()
+        {
+            int change = 0;
+            for (int i = 0; i < Value.Length; i++)
+            {
+                change = i;
+                for (int j = i + 1; j < change; j++)
+                    if (Value[j] < Value[change])
+                        change = j;
+                    if (change != i)
+                        Swap(ref Value[i], ref Value[change]);
+            }
+        }
     }
 }
