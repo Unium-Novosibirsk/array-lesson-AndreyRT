@@ -96,12 +96,21 @@ namespace ArrayLesson
             firstarg = secondarg;
             secondarg = change;
         }
-        public void BubbleSort()
+        public bool Chek(int val)
         {
             for (int i = 0; i < Value.Length; i++)
-                for (int j = i + 1; j < Value.Length - 1; j++)
-                    if (Value[j] > Value[j+1])
-                        Swap(ref Value[j],ref Value[j + 1]);
+                if (Value[i] == val)
+                    return true;
+            return false;
+        }
+        public void BubbleSort()
+        {
+            for (int i = 1; i < Value.Length; i++)
+                for (int j = Value.Length - 1; j > 0; j--)
+                {
+                    if (Value[j - 1] > Value[j])
+                        Swap(ref Value[j - 1], ref Value[j]);
+                }
         }
     }
 }

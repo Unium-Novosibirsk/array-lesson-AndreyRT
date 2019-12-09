@@ -46,6 +46,9 @@ namespace ArrayLesson
             Array1.RemoveByIndex(index0);
             Array1.Print();
             Console.WriteLine();
+            Console.WriteLine("Задайте значение для проверки его наличия");
+            Console.WriteLine(Array1.Chek(int.Parse(Console.ReadLine())));
+            Console.WriteLine();
             Console.Write("Сортировка - ");
             Array1.BubbleSort();
             Array1.Print();
