@@ -124,15 +124,17 @@ namespace ArrayLesson
         }
         public void SelectionSort()
         {
-            int change = 0;
             for (int i = 0; i < Value.Length; i++)
             {
-                change = i;
-                for (int j = i + 1; j < change; j++)
-                    if (Value[j] < Value[change])
-                        change = j;
-                    if (change != i)
-                        Swap(ref Value[i], ref Value[change]);
+                int minind = i;
+                for (int j = i; j < Value.Length; j++)
+                {
+                    if (Value[minind] > Value[j])
+                    {
+                        minind = j;
+                    }
+                }
+                Swap(ref Value[i], ref Value[minind]);
             }
         }
     }

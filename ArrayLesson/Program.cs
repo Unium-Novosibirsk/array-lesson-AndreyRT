@@ -13,7 +13,7 @@ namespace ArrayLesson
             var str = Console.ReadLine();
             int[] Array0 = str.Split(' ').Select(int.Parse).ToArray();
             Array Array1 = new Array(Array0);
-            Array1.Summ();
+           /* Array1.Summ();
             Array1.Max();
             Array1.Min();
             Array1.Multiplication();
@@ -48,7 +48,7 @@ namespace ArrayLesson
             Console.WriteLine();
             Console.WriteLine("Задайте значение для проверки его наличия");
             Console.WriteLine(Array1.Chek(int.Parse(Console.ReadLine())));
-            Console.WriteLine();
+            Console.WriteLine(); */
             Console.WriteLine("Выберите тип сортировки");
             Console.WriteLine("1 - BubbleSort");
             Console.WriteLine("2 - SelectionSort");
@@ -56,7 +56,7 @@ namespace ArrayLesson
             Console.Write("Сортировка - ");
             if (interfasevalue == 1)
                 Array1.BubbleSort();
-            else if (interfasevalue == 1)
+            else if (interfasevalue == 2)
                 Array1.SelectionSort();
             Array1.Print();
             Console.ReadKey();
