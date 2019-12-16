@@ -12,17 +12,22 @@ namespace ArrayLesson
         private int[] Value;
         public Array(Array array)
         {
-            Array Array0 = array;
             Size = array.Size;
             Value = new int[array.Size];
             for (int j = 0; j < array.Size; j++)
                 Value[j] = array[j];
         }
+        public Array(int[] _Value)
+        {
+            Size = _Value.Length;
+            Value = new int[_Value.Length];
+            for (int j = 0; j < _Value.Length; j++)
+                Value[j] = _Value[j];
+        }
         public Array()
         {
-            var str = Console.ReadLine();
-            Value = str.Split(' ').Select(int.Parse).ToArray();
-            Size = Value.Length;
+            Size = 0;
+            Value = new int[0];
         }
         public int this [int index]
         {
@@ -82,7 +87,7 @@ namespace ArrayLesson
         }
         public void RemoveByIndex(int index1)
         {
-            if (index1 < 0 || index1 > Value.Length)
+            if (index1 < 0 || index1 > Size)
                 throw new IndexOutOfRangeException();
             int[] arr = new int[Size - 1];
             for (int i = 0; i < index1; i++)
@@ -90,6 +95,16 @@ namespace ArrayLesson
             for (int i = index1; i < Size - 1; i++)
                 arr[i] = Value[i + 1];
             Value = arr;
+            Size = Value.Length;
+        }
+        public void RemoveByValue(int val)
+        {
+            for (int i = 0; i < Size; i++)
+                if (val == Value[i])
+                {
+                    RemoveByIndex(i);
+                    i--;
+                }
         }
         public int Get(int index)
         {

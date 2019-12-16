@@ -10,7 +10,9 @@ namespace ArrayLesson
         static void Main(string[] args)
         {
             Console.WriteLine("Задайте массив");
-            Array Array1 = new Array();
+            string str = Console.ReadLine();
+            int[] Array0 = str.Split(' ').Select(int.Parse).ToArray();
+            Array Array1 = new Array(Array0);
             Array Array2 = new Array(Array1);
             /*
             Console.WriteLine("Summ of args = " + Array1.Summ());
@@ -31,6 +33,10 @@ namespace ArrayLesson
             Console.WriteLine(Array1.Chek(int.Parse(Console.ReadLine())));
             Console.WriteLine();
             */
+            Console.WriteLine("Задайте значение для удаления");
+            Array1.RemoveByValue(int.Parse(Console.ReadLine()));
+            Array1.Print();
+            /*
             Console.WriteLine("Выберите тип сортировки");
             Console.WriteLine("1 - BubbleSort");
             Console.WriteLine("2 - SelectionSort");
@@ -45,6 +51,7 @@ namespace ArrayLesson
                 Array1.InsertionSort();
             Array1.Print();
             Array2.Print();
+            */
             Console.ReadKey();
         }
     }
