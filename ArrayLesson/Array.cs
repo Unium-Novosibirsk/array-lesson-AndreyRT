@@ -10,17 +10,15 @@ namespace ArrayLesson
     {
         public int Size { get; private set; }
         private int[] Value;
-        public Array(int[] _Value)
+        public Array(Array array)
         {
-            Size = _Value.Length;
-            Value = new int[_Value.Length];
-            for (int j = 0; j < _Value.Length; j++)
-                Value[j] = _Value[j];
+            Array Array0 = array;
         }
         public Array()
         {
-            Value = new int[0];
-            Size = 0;
+            var str = Console.ReadLine();
+            Value = str.Split(' ').Select(int.Parse).ToArray();
+            Size = Value.Length;
         }
         public int this [int index]
         {
@@ -37,14 +35,14 @@ namespace ArrayLesson
         public int Summ()
         {
             int summ = 0;
-            for (int i = 0; i < Value.Length; i++)
+            for (int i = 0; i < Size; i++)
                 summ += Value[i];
             return summ;
         }
         public int Min()
         {
             int min = Value[0];
-            for (int i = 0; i < Value.Length; i++)
+            for (int i = 0; i < Size; i++)
                 if (min > Value[i])
                     min = Value[i];
             return min;
@@ -52,14 +50,14 @@ namespace ArrayLesson
         public long Multiplication()
         {
             long multiplication = 1;
-            for (int i = 0; i < Value.Length; i++)
+            for (int i = 0; i < Size; i++)
                 multiplication *= Value[i];
             return multiplication;
         }
         public int Max()
         {
             int max = 0;
-            for (int i = 0; i < Value.Length; i++)
+            for (int i = 0; i < Size; i++)
                 if (max < Value[i])
                     max = Value[i];
             return max;
@@ -67,12 +65,13 @@ namespace ArrayLesson
         public void Print()
         {
             Console.Write("Array = ");
-            for (int i = 0; i < Value.Length; i++)
+            for (int i = 0; i < Size; i++)
                 Console.Write(Value[i] + " ");
+            Console.WriteLine();
         }
         public int Find(int val)
         {
-            for (int i = 0; i < Value.Length; i++)
+            for (int i = 0; i < Size; i++)
                 if (Value[i] == val)
                     return i;
             return -1;
@@ -81,23 +80,23 @@ namespace ArrayLesson
         {
             if (index1 < 0 || index1 > Value.Length)
                 throw new IndexOutOfRangeException();
-            int[] arr = new int[Value.Length - 1];
+            int[] arr = new int[Size - 1];
             for (int i = 0; i < index1; i++)
                 arr[i] = Value[i];
-            for (int i = index1; i < Value.Length - 1; i++)
+            for (int i = index1; i < Size - 1; i++)
                 arr[i] = Value[i + 1];
             Value = arr;
         }
         public int Get(int index)
         {
-            if (index < 0 || index >= Value.Length)
+            if (index < 0 || index >= Size)
                 throw new IndexOutOfRangeException();
             else
                 return Value[index];
         }
         public void Set(int index, int val)
         {
-            if (index < 0 || index >= Value.Length)
+            if (index < 0 || index >= Size)
                 throw new IndexOutOfRangeException();
             else
                 Value[index] = val;
@@ -110,24 +109,24 @@ namespace ArrayLesson
         }
         public bool Chek(int val)
         {
-            for (int i = 0; i < Value.Length; i++)
+            for (int i = 0; i < Size; i++)
                 if (Value[i] == val)
                     return true;
             return false;
         }
         public void BubbleSort()
         {
-            for (int i = 1; i < Value.Length; i++)
+            for (int i = 1; i < Size; i++)
                 for (int j = Value.Length - 1; j > 0; j--)
                     if (Value[j - 1] > Value[j])
                         Swap(ref Value[j - 1], ref Value[j]);
         }
         public void SelectionSort()
         {
-            for (int i = 0; i < Value.Length; i++)
+            for (int i = 0; i < Size; i++)
             {
                 int minind = i;
-                for (int j = i; j < Value.Length; j++)
+                for (int j = i; j < Size; j++)
                     if (Value[minind] > Value[j])
                         minind = j;
                 Swap(ref Value[i], ref Value[minind]);
@@ -137,7 +136,7 @@ namespace ArrayLesson
         {
             int change = 0;
             int index = 0;
-            for (int i = 1; i < Value.Length; i++)
+            for (int i = 1; i < Size; i++)
             {
                 index = 0;
                 while (Value[index] <= Value[i] && index<i)
