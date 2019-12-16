@@ -44,7 +44,6 @@ namespace ArrayLesson
             else if (interfasevalue == 3)
                 Array1.InsertionSort();
             Array1.Print();
-            Array2.Min();
             Array2.Print();
             Console.ReadKey();
         }
