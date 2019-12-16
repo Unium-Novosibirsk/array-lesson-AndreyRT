@@ -120,7 +120,7 @@ namespace ArrayLesson
             else
                 Value[index] = val;
         }
-        static void Swap(ref int firstarg, ref int secondarg)
+        private void Swap(ref int firstarg, ref int secondarg)
         {
             int change = firstarg;
             firstarg = secondarg;
