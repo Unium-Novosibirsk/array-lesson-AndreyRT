@@ -122,5 +122,31 @@ namespace ArrayLesson
                     if (Value[j - 1] > Value[j])
                         Swap(ref Value[j - 1], ref Value[j]);
         }
+        public void SelectionSort()
+        {
+            for (int i = 0; i < Value.Length; i++)
+            {
+                int minind = i;
+                for (int j = i; j < Value.Length; j++)
+                    if (Value[minind] > Value[j])
+                        minind = j;
+                Swap(ref Value[i], ref Value[minind]);
+            }
+        }
+        public void InsertionSort()
+        {
+            int change = 0;
+            int index = 0;
+            for (int i = 1; i < Value.Length; i++)
+            {
+                index = 0;
+                while (Value[index] <= Value[i] && index<i)
+                    index++;
+                change = Value[i];
+                for (int j = i; j > index; j--)
+                    Value[j] = Value[j - 1];
+                Value[index] = change;
+            }
+        }
     }
 }
