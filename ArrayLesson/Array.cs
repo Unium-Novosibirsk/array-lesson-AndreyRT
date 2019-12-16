@@ -12,7 +12,6 @@ namespace ArrayLesson
         private int[] Value;
         public Array(Array array)
         {
-            Array Array0 = array;
             Size = array.Size;
             Value = new int[array.Size];
             for (int j = 0; j < array.Size; j++)
