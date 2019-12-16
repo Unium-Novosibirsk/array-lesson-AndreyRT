@@ -18,11 +18,17 @@ namespace ArrayLesson
             for (int j = 0; j < array.Size; j++)
                 Value[j] = array[j];
         }
+        public Array(int[] _Value)
+        {
+            Size = _Value.Length;
+            Value = new int[_Value.Length];
+            for (int j = 0; j < _Value.Length; j++)
+                Value[j] = _Value[j];
+        }
         public Array()
         {
-            var str = Console.ReadLine();
-            Value = str.Split(' ').Select(int.Parse).ToArray();
-            Size = Value.Length;
+            Size = 0;
+            Value = new int[0];
         }
         public int this [int index]
         {

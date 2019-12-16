@@ -10,6 +10,8 @@ namespace ArrayLesson
         static void Main(string[] args)
         {
             Console.WriteLine("Задайте массив");
+            var str = Console.ReadLine();
+            int[] Array0 = str.Split(' ').Select(int.Parse).ToArray();
             Array Array1 = new Array();
             Array Array2 = new Array(Array1);
             /*
