@@ -13,6 +13,8 @@ namespace ArrayLesson
             var str = Console.ReadLine();
             int[] Array0 = str.Split(' ').Select(int.Parse).ToArray();
             Array Array1 = new Array(Array0);
+            Console.Write("Сортировка - ");
+            Array1.InsertionSort();
            /* Array1.Summ();
             Array1.Max();
             Array1.Min();
